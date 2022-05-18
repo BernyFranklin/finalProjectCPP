@@ -36,6 +36,9 @@ int main() {
         char buff[100];                       // Buffer to read from file
         int boyCount = 0;
         int girlCount = 0;
+        // Bools for name found
+        bool boyNameFound = false;
+        bool girlNameFound = false;
 
         // Prompt User for name to search
         cout << "\nPlease enter a name to search: ";
@@ -59,21 +62,28 @@ int main() {
             // Update boyCount
             boyCount++;
             // Did we find a boy match?
-            if (strcasecmp(nameToSearch, boyName) == 0)
-                cout << "\nI found a match at " << boyCount;
+            if (strcasecmp(nameToSearch, boyName) == 0) {
+                boyNameFound = true;
+                cout << "\nThe name " << boyName << " has a rank of " << boyCount << " among boy names.";
+            }   // End of boy match
             // Read next name into girlName
             inFile >> girlName;
             // Update girlCount
             girlCount++;
             // Did we find a girl match?
-            if (strcasecmp(nameToSearch, girlName) == 0)
-                cout << "\nI found a match at " << girlCount;
+            if (strcasecmp(nameToSearch, girlName) == 0) {
+                girlNameFound = true;
+                cout << "\nThe name " << girlName << " has a rank of " << girlCount << " among girls names.";
+            }   // End of girl match
 
         }   // End of search
 
-        // Test
-        cout << "\nBoy total: " << boyCount;
-        cout << "\nGirl total: " << girlCount;
+        // No matches
+        if (!boyNameFound)
+            cout << "\nThere were no boy names that matched the name " << nameToSearch << ".";
+        if (!girlNameFound)
+            cout << "\nThere were no girl names that matched the name " << nameToSearch << ".";
+
 
         // Search again?
         while (again != 'Y' && again != 'N') {
