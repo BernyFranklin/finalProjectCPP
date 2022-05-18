@@ -1,0 +1,17 @@
+Welcome User
+    While !quit 
+        Enter a name:
+            Read name from keyboard
+                Open File 
+                loop while has next line
+                    boyName = scan.next()
+                    boy++
+                    girlName = scan.next()
+                    girl++
+
+                    If match
+                        print which list boy or girl 
+                Close file 
+        Ask if want to enter another name 
+            If No 
+                break
