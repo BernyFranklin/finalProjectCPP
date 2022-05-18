@@ -2,8 +2,8 @@
  * babyNames.cpp Version#1.0
  * Frank Bernal
  * CIS 054 C/C++ Programming
- * Input
- * Output
+ * Input: nameToSearch
+ * Output: match/noMatch and rank
  * 17 May 2022
  */
 
@@ -28,14 +28,14 @@ int main() {
     // Start loop for search
     while (searchAgain) {
         // Declare and initialize variables for loop
-        char nameToSearch[100] = "";
-        char boyName[100] = "";
-        char girlName[100] = "";
-        char again = ' ';
+        char nameToSearch[100] = "";          // User input for search
+        char boyName[100] = "";               // Placeholder for name
+        char girlName[100] = "";              // Placeholder for name
+        char again = ' ';                     // Search again input
         char fileName[] = "FirstNames.txt";   // Relative path to file
         char buff[100];                       // Buffer to read from file
-        int boyCount = 0;
-        int girlCount = 0;
+        int boyCount = 0;                     // Counter
+        int girlCount = 0;                    // Counter
         // Bools for name found
         bool boyNameFound = false;
         bool girlNameFound = false;
@@ -63,6 +63,7 @@ int main() {
             boyCount++;
             // Did we find a boy match?
             if (strcasecmp(nameToSearch, boyName) == 0) {
+                // Set flag
                 boyNameFound = true;
                 cout << "\nThe name " << boyName << " has a rank of " << boyCount << " among boy names.";
             }   // End of boy match
@@ -72,6 +73,7 @@ int main() {
             girlCount++;
             // Did we find a girl match?
             if (strcasecmp(nameToSearch, girlName) == 0) {
+                // Set flag
                 girlNameFound = true;
                 cout << "\nThe name " << girlName << " has a rank of " << girlCount << " among girls names.";
             }   // End of girl match
